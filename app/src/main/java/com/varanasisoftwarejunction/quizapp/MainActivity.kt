@@ -35,17 +35,7 @@ if(current<=start)
     return
 }
         current--
-        var currentquestion:Question=questions[current]
-        val tv:TextView=findViewById<TextView>(R.id.textView)
-        val rd1:RadioButton=findViewById<RadioButton>(R.id.rd1)
-        val rd2:RadioButton=findViewById<RadioButton>(R.id.rd2)
-        val rd3:RadioButton=findViewById<RadioButton>(R.id.rd3)
-        val rd4:RadioButton=findViewById<RadioButton>(R.id.rd4)
-        tv.text=currentquestion.question
-        rd1.text=currentquestion.opta
-        rd2.text=currentquestion.optb
-        rd3.text=currentquestion.optc
-        rd4.text=currentquestion.optd
+       loadQuestion()
     }
     fun doSubmit()
     {
@@ -63,7 +53,14 @@ if(current<=start)
             option=3
         if(rd4.isChecked)
             option=4
-        shoWToast("You selected option " + option.toString())
+        val question:Question=questions[current]
+        val correctoption=question.correctanswer
+        if(option==correctoption)
+            shoWToast("correct Answer")
+        else
+            shoWToast("Wrong Answer")
+        question.givenanswer=option
+
 
     }
     fun goRight()
@@ -74,12 +71,18 @@ if(current<=start)
             return
         }
         current++
+       loadQuestion()
+    }
+
+    fun loadQuestion()
+    {
         var currentquestion:Question=questions[current]
         val tv:TextView=findViewById<TextView>(R.id.textView)
         val rd1:RadioButton=findViewById<RadioButton>(R.id.rd1)
         val rd2:RadioButton=findViewById<RadioButton>(R.id.rd2)
         val rd3:RadioButton=findViewById<RadioButton>(R.id.rd3)
         val rd4:RadioButton=findViewById<RadioButton>(R.id.rd4)
+        val rdDefault:RadioButton=findViewById<RadioButton>(R.id.rdDefault)
         val bttnsubmit=findViewById<Button>(R.id.bttnSubmit)
         rd1.visibility=View.VISIBLE
         rd2.visibility=View.VISIBLE
@@ -91,7 +94,21 @@ if(current<=start)
         rd2.text=currentquestion.optb
         rd3.text=currentquestion.optc
         rd4.text=currentquestion.optd
+        val givenanswer=currentquestion.givenanswer
+        if(givenanswer==0)
+            rdDefault.isChecked=true
+        if(givenanswer==1)
+            rd1.isChecked=true
+        if(givenanswer==2)
+            rd2.isChecked=true
+        if(givenanswer==3)
+            rd3.isChecked=true
+        if(givenanswer==4)
+            rd4.isChecked=true
+
+
     }
+
 fun shoWToast(message:String)
 {
     Toast.makeText(applicationContext,message,Toast.LENGTH_LONG).show()
