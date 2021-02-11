@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
     }
     fun goLeft()
     {
-if(current<=0)
+if(current<=start)
 {
     shoWToast("No more questions")
     return
@@ -49,6 +49,21 @@ if(current<=0)
     }
     fun doSubmit()
     {
+        val rd1:RadioButton=findViewById<RadioButton>(R.id.rd1)
+        val rd2:RadioButton=findViewById<RadioButton>(R.id.rd2)
+        val rd3:RadioButton=findViewById<RadioButton>(R.id.rd3)
+        val rd4:RadioButton=findViewById<RadioButton>(R.id.rd4)
+
+        var option:Int=0
+        if(rd1.isChecked)
+            option=1
+        if(rd2.isChecked)
+            option=2
+        if(rd3.isChecked)
+            option=3
+        if(rd4.isChecked)
+            option=4
+        shoWToast("You selected option " + option.toString())
 
     }
     fun goRight()
@@ -65,6 +80,12 @@ if(current<=0)
         val rd2:RadioButton=findViewById<RadioButton>(R.id.rd2)
         val rd3:RadioButton=findViewById<RadioButton>(R.id.rd3)
         val rd4:RadioButton=findViewById<RadioButton>(R.id.rd4)
+        val bttnsubmit=findViewById<Button>(R.id.bttnSubmit)
+        rd1.visibility=View.VISIBLE
+        rd2.visibility=View.VISIBLE
+        rd3.visibility=View.VISIBLE
+        rd4.visibility=View.VISIBLE
+        bttnsubmit.visibility=View.VISIBLE
         tv.text=currentquestion.question
         rd1.text=currentquestion.opta
         rd2.text=currentquestion.optb

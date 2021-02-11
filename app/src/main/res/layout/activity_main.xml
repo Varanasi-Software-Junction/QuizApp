@@ -31,7 +31,7 @@
             android:id="@+id/rd1"
             android:layout_height="wrap_content"
             android:text="Option A"
-
+            android:visibility="gone"
 
             app:layout_constraintStart_toStartOf="parent"
 
@@ -43,6 +43,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Option B"
+            android:visibility="gone"
             tools:layout_editor_absoluteX="300dp"
             tools:layout_editor_absoluteY="141dp" />
 
@@ -51,6 +52,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Option C"
+            android:visibility="gone"
             tools:layout_editor_absoluteX="150dp"
             tools:layout_editor_absoluteY="141dp" />
 
@@ -59,6 +61,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Option D"
+            android:visibility="gone"
             tools:layout_editor_absoluteX="250dp"
             tools:layout_editor_absoluteY="141dp" />
 
@@ -78,11 +81,12 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
         android:layout_marginTop="160dp"
+        android:visibility="gone"
         android:text="Submit"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/bttnLeft"
         app:layout_constraintTop_toBottomOf="@+id/radioGroup2"
-        app:layout_constraintVertical_bias="0.006" />
+        app:layout_constraintVertical_bias="0.504" />
 
     <Button
         android:id="@+id/bttnRight"
@@ -105,7 +109,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/radioGroup2"
-        app:layout_constraintVertical_bias="0.053" />
+        app:layout_constraintVertical_bias="0.504" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
